@@ -6,7 +6,7 @@ import { Studio } from "@/components/studio";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PLATFORM_ORDER, PLATFORMS, type PlatformId, type Profile } from "@/lib/platforms";
 
-const GITHUB_URL = "";
+const GITHUB_URL = "https://github.com/abinash2553J/Render";
 
 const PLATFORM_NOTES: Record<string, string> = {
   x: "Name, bio, banner and counts, pulled live from the handle.",
