@@ -1,148 +1,150 @@
+<h1 align="center">Render</h1>
+
 <p align="center">
-  <img src="docs/banner.png" alt="A Render card for @ArmanKiyotaka on the Flare background" width="100%" />
+  Turn a social profile into a polished card you can download, copy, or share.
 </p>
 
 <p align="center">
-  Turn an X, GitHub or Instagram handle into a profile card worth posting.<br>
-  No sign-up, no design tool, nothing stored.
+  <a href="#getting-started">Get started</a> ·
+  <a href="#using-render">Using Render</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#privacy">Privacy</a>
 </p>
-
-<h4 align="center">
-  <a href="#getting-started">Getting started</a> |
-  <a href="#usage">Usage</a> |
-  <a href="#how-it-works">How it works</a> |
-  <a href="#roadmap">Roadmap</a>
-</h4>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-16-black.svg" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/React-19-149eca.svg" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178c6.svg" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8.svg" alt="Tailwind CSS 4" />
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT licensed" /></a>
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
 </p>
 
-Render makes a clean, share-ready image of your profile. Type a handle, and it pulls your name, bio, photo, banner and follower counts, sets them on a card in the style of the platform, and places the card on a background sized for the feed you're posting to. Download it as a PNG or copy it straight to the clipboard.
+Render turns a public profile into a ready-to-post image. Choose a card style, layout, and background, then download the result or copy it to your clipboard. No account is required.
 
-<p align="center">
-  <img src="docs/studio.png" alt="The Render studio: a card preview with style, format, background and export controls" width="100%" />
-</p>
 
-## Highlights
 
-| | |
-|---|---|
-| Platforms | X, GitHub and Instagram pulled automatically; LinkedIn filled in by hand |
-| Card styles | Native, Minimal and Ticket, each in light or dark |
-| Export sizes | X post 16:9, LinkedIn 1.91:1, Instagram 4:5, Square 1:1, GitHub social preview 2:1 |
-| Resolution | Every export at 2×, for example 2400 × 1350 for an X post |
-| Backgrounds | Five grainy gradients, plain black, six soft tones, or your own image |
-| Accounts | None. Nothing is saved on a server |
+## Features
+
+- Create cards for X, GitHub, Instagram, and LinkedIn.
+- Pull public profile details from X, GitHub, and Instagram; edit LinkedIn details manually.
+- Choose Native, Minimal, or Ticket card styles, each with light or dark card colors.
+- Export for X, LinkedIn, Instagram, square posts, or GitHub previews at 2× resolution.
+- Customize profile details, stats, backgrounds, and photos.
+- Download a PNG, copy it to the clipboard, or share a profile link.
+- Use the site in light or dark mode.
+- Open a profile directly in the studio with a shareable URL.
+
+## Getting started
+
+### Requirements
+
+- Node.js 20 or newer
+- [pnpm](https://pnpm.io/)
+
+### Run locally
+
+```sh
+git clone https://github.com/abinash2553J/Render.git
+pnpm install
+pnpm dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000).
+
+No environment variables are required for local development. GitHub allows 60 unauthenticated API requests per hour. To increase that limit, optionally add a GitHub personal access token with no scopes to `.env.local`:
+
+```dotenv
+GITHUB_TOKEN=your_github_token
+```
+
+Keep tokens private. Do not commit `.env.local`.
+
+### Production
+
+```sh
+pnpm build
+pnpm start
+```
+
+Render is a Next.js application and can run on hosts that support Next.js, including Vercel.
+
+## Using Render
+
+1. Choose a platform and enter a handle or profile URL. A leading `@` is also accepted.
+2. Select a card style, export format, and background.
+3. Use **Show** to choose which stats and profile details appear.
+4. Open **Edit details** to change the profile or upload a photo or banner.
+5. Choose **Download** to save a PNG or **Copy** to copy it to your clipboard.
+6. Use **Share** to share or copy a link to the profile.
+
+### Shareable profile URLs
+
+Open a profile directly in the studio:
+
+```text
+/x/handle
+/github/handle
+/instagram/handle
+/linkedin/handle
+```
+
+X, GitHub, and Instagram profiles load available public information. LinkedIn currently opens a blank editable card; LinkedIn sign-in is not implemented.
 
 ## Card styles
 
 <table>
   <tr>
-    <td width="33%"><img src="docs/style-native.png" alt="Native style on the Wave background" /></td>
-    <td width="33%"><img src="docs/style-minimal.png" alt="Minimal style, dark, on the Graphite background" /></td>
-    <td width="33%"><img src="docs/style-ticket.png" alt="Ticket style on the Horizon background" /></td>
+    <td width="33%"></td>
+    <td width="33%"></td>
+    <td width="33%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Native</b><br><sub>Reads like the platform's own profile header</sub></td>
-    <td align="center"><b>Minimal</b><br><sub>Centered and quiet, one row of numbers</sub></td>
-    <td align="center"><b>Ticket</b><br><sub>An admission ticket with a perforated stub</sub></td>
+    <td align="center"><b>Native</b><br><sub>Inspired by the platform's profile layout</sub></td>
+    <td align="center"><b>Minimal</b><br><sub>A centered profile with a quiet layout</sub></td>
+    <td align="center"><b>Ticket</b><br><sub>A profile card with a ticket-style stub</sub></td>
   </tr>
 </table>
 
-## Getting started
-
-Render needs Node.js 20 or newer and [pnpm](https://pnpm.io).
-
-```sh
-git clone https://github.com/kaihere14/Kado && cd Kado
-pnpm install
-pnpm dev
-```
-
-Open [localhost:3000](http://localhost:3000). No keys are required.
-
-GitHub allows 60 unauthenticated requests an hour. To raise that to 5,000, add a personal access token with no scopes to `.env.local`:
-
-```sh
-GITHUB_TOKEN=github_pat_...
-```
-
-To build for production, run `pnpm build` and then `pnpm start`. Render runs on any host that supports Next.js, including Vercel.
-
-## Usage
-
-1. Choose a platform and type a handle. Full profile URLs and a leading `@` work too.
-2. Pick a **style**, a **format** for where you're posting, and a **background**.
-3. Under **Show**, choose which numbers appear, and whether to include the verified badge, banner and platform logo.
-4. Open **Edit details** to change anything the platform returned, or to upload your own photo and banner.
-5. **Download** saves a PNG. **Copy** puts the image on your clipboard, ready to paste into a post.
-
 ## How it works
 
-| Platform | Source | What comes through |
+| Platform | Profile source | Details |
 |---|---|---|
-| X | [FxTwitter](https://github.com/FxEmbed/FxEmbed) public API | Name, bio, photo, banner, followers, following, posts, verified |
-| GitHub | [GitHub REST API](https://docs.github.com/rest/users) | Name, bio, photo, followers, following, public repos |
-| Instagram | Public profile page metadata, with the profile embed as fallback | Name, photo, followers, following, posts (rounded, as Instagram shows them). The fallback has exact counts and the verified badge but no following count |
-| LinkedIn | You | LinkedIn blocks profile access, so you type your headline and numbers |
+| X | [FxTwitter public API](https://github.com/FxEmbed/FxEmbed) | Name, bio, profile photo, banner, stats, and verification status |
+| GitHub | [GitHub REST API](https://docs.github.com/rest/users) | Name, bio, profile photo, followers, following, and public repositories |
+| Instagram | Public profile metadata, with an embed fallback | Name, photo, and available public stats; Instagram may limit profile data |
+| LinkedIn | Manual entry | Add a name, headline, stats, and photo yourself |
 
-Profile requests go through Next.js route handlers and are cached for an hour. Photos and banners load through a same-origin image proxy, which only accepts the X, GitHub and Instagram image CDNs. That lets the browser draw them into the exported PNG.
+Profile images are loaded through a same-origin image proxy so the browser can include them in exported cards. The proxy only accepts the image hosts used by supported profile sources.
 
-The card is rendered at the full size of the chosen format and scaled down to fit the preview, so the download matches the preview exactly. [html-to-image](https://github.com/bubkoo/html-to-image) turns it into a PNG in your browser.
-
-Open a profile directly in the studio with a link such as `/x/handle` or `/github/handle`. Instagram profiles use `/instagram/handle`; LinkedIn links open a blank card to fill in.
+The browser renders the card at the selected export size. Render uses [html-to-image](https://github.com/bubkoo/html-to-image) to create the PNG.
 
 ## Privacy
 
-Render has no accounts, database or analytics. A handle is sent only to fetch that profile, and the result lives in your browser tab. Uploaded photos and backgrounds never leave your device.
+- Render does not require user accounts and does not store profile edits in a database.
+- Profile lookups are handled by the app server and cached for performance.
+- Uploaded photos and backgrounds are processed in your browser and are not uploaded by the editor.
+- The app includes Vercel Analytics; when deployed with analytics enabled, page visits may be measured by Vercel.
 
-## Roadmap
+## Development
 
-- [x] X, GitHub and Instagram profiles
-- [x] Feed-sized exports at 2×
-- [x] Shareable links such as `/x/handle` that open straight into the studio
-- [ ] Sign in with LinkedIn to fill in your name and photo
-- [ ] More card styles
-- [ ] A dark theme for the site itself
+Run the available checks before submitting changes:
 
-Ideas are welcome in [issues](https://github.com/kaihere14/Kado/issues).
+```sh
+pnpm lint
+pnpm exec tsc --noEmit
+pnpm build
+```
 
-## Contributing
-
-Contributions are welcome. Fork the repository, create a branch, and open a pull request. Run `pnpm lint` and `pnpm exec tsc --noEmit` before submitting.
+Contributions are welcome. Open an issue to discuss an idea or submit a pull request.
 
 ## Built with
 
-- [Next.js 16](https://nextjs.org) and React 19
-- [Tailwind CSS 4](https://tailwindcss.com)
-- [html-to-image](https://github.com/bubkoo/html-to-image) for the PNG export
+- [Next.js 16](https://nextjs.org/) and [React 19](https://react.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [html-to-image](https://github.com/bubkoo/html-to-image) for PNG export
 - [Inter](https://rsms.me/inter/) and [Geist Mono](https://vercel.com/font)
-- [Lucide](https://lucide.dev) icons
-
-## About Render
-
-Render turns social profiles into polished cards ready to share. Its logo brings the platforms together in a rounded card.
-
-## Star history
-
-<a href="https://star-history.com/#kaihere14/Kado&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=kaihere14/Kado&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=kaihere14/Kado&type=Date" />
-    <img alt="Star history for kaihere14/Kado" src="https://api.star-history.com/svg?repos=kaihere14/Kado&type=Date" />
-  </picture>
-</a>
+- [Lucide](https://lucide.dev/) icons
 
 ## License
 
-Render is licensed under the [MIT License](LICENSE).
-
-<p align="center">
-  <sub>Made by <a href="https://x.com/ArmanKiyotaka">@ArmanKiyotaka</a></sub>
-</p>
+Render is released under the [MIT License](LICENSE).
